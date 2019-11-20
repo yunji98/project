@@ -1,5 +1,6 @@
 package com.example.hankki
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,6 +18,9 @@ class JoinActivity : AppCompatActivity() {
             val pw: String = userPw.text.toString()
             val user = User(name, id, pw, 0)
             db.collection("users").document(name).set(user)
+
+            val intent = Intent(this, SelectActivity::class.java)
+            startActivity(intent)
         }
 
 
